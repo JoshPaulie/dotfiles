@@ -19,6 +19,7 @@ alias ..="cd .."
 alias ~="cd $HOME"
 alias dev="cd $HOME/dev"
 alias zshrc="nvim $HOME/.zshrc && source $HOME/.zshrc && echo '✨ Sourced .zshrc' "
+alias dotfiles="cd $HOME/dotfiles"
 alias c="clear"
 alias mv="mv -v"
 alias cp="cp -v"
@@ -55,3 +56,7 @@ alias gpull='git pull'
 alias gadd='git add'
 alias gstat='git status'
 alias gdiff='git diff'
+
+# Misc
+alias ff="fastfetch"
+alias lg="lazygit"
