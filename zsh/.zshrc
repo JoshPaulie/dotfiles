@@ -40,7 +40,7 @@ alias ls="eza -l --icons --ignore-glob=.git"
 alias lsa="ls -a"
 alias grep="rg"
 alias find="fd"
-alias cat="bat -p --theme='Catppuccin Macchiato'"
+alias cat="bat -p"
 
 # Git
 function gcommit {
