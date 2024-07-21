@@ -42,6 +42,9 @@ alias grep="rg"
 alias find="fd"
 alias cat="bat -p"
 
+# Pretty manpages
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 # Git
 function gcommit {
 	git commit -m "$*"
