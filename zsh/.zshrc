@@ -36,7 +36,7 @@ function tmp { # Used for quickly making temp directories
 }
 
 # Oxidized coreutil replacements
-alias ls="eza -l --icons"
+alias ls="eza -l --icons --ignore-glob=.git"
 alias lsa="ls -a"
 alias grep="rg"
 alias find="fd"
