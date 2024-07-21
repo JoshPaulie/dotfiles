@@ -6,7 +6,8 @@ export PATH=$PATH:/Users/bex/.yen/bin
 alias py="yen exec --python 3.12"
 
 # Homebrew
-export HOMEBREW_NO_ENV_HINTS
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Case insensitive completion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
