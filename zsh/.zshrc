@@ -5,7 +5,7 @@ eval "$(starship init zsh)"
 source $HOME/dotfiles/zsh/zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/dotfiles/zsh/zsh-plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source $HOME/dotfiles/zsh/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$HOME/dotfiles/zsh/zsh-syntax-highlighting/highlighters
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$HOME/dotfiles/zsh/zsh-plugins/zsh-syntax-highlighting/highlighters
 
 # Yen (python environment manager)
 export PATH=$PATH:/Users/bex/.yen/bin
