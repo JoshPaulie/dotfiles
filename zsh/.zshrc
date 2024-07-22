@@ -30,12 +30,12 @@ alias c="clear"
 alias mv="mv -v"
 alias cp="cp -v"
 
-function mkcd {
+mkcd() {
 	mkdir $1 && cd $1
 }
 
 export TEMP_DIR="$HOME/tmp"
-function tmp { # Used for quickly making temp directories
+tmp() { # Used for quickly making temp directories
 	mkdir -p $TEMP_DIR
 	cd $TEMP_DIR
 	mkdir $1
