@@ -54,7 +54,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Git
 function gcommit {
-	git commit -m "$*"
+	git commit -m "$1"
 }
 alias ginit='git init'
 alias gpush='git push'
