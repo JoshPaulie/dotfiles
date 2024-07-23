@@ -43,6 +43,11 @@ tmp() { # Used for quickly making temp directories
 	cd $1
 }
 
+cpath() {
+	FILE_PATH=$(readlink -f "$1")
+	echo $FILE_PATH | pbcopy
+}
+
 # Oxidized coreutil replacements
 alias ls="eza -l --icons --ignore-glob=.git"
 alias lsa="ls -a"
