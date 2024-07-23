@@ -4,6 +4,7 @@ eval "$(starship init zsh)"
 # Zsh Plugins
 source $HOME/dotfiles/zsh/zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/dotfiles/zsh/zsh-plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source $HOME/dotfiles/zsh/zsh-plugins/catppuccin-zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
 source $HOME/dotfiles/zsh/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$HOME/dotfiles/zsh/zsh-plugins/zsh-syntax-highlighting/highlighters
 
