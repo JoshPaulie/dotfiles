@@ -20,7 +20,7 @@ Git doesn't come preinstalled. The follow steps ensure it's present on machine
 ```sh
 git clone https://github.com/JoshPaulie/macstrap ~/macstrap
 cd ~/macstrap
-sh macstrap.sh
+./macstrap.sh
 ```
 
 ## Manual steps
