@@ -27,6 +27,7 @@ alias ~="cd $HOME"
 alias dev="cd $HOME/dev"
 alias zshrc="nvim $HOME/.zshrc && source $HOME/.zshrc && echo '✨ Sourced .zshrc' "
 alias dotfiles="cd $HOME/dotfiles"
+alias dot="dotfiles"
 alias c="clear"
 alias mv="mv -v"
 alias cp="cp -v"
@@ -46,6 +47,10 @@ tmp() { # Used for quickly making temp directories
 cpath() {
 	FILE_PATH=$(readlink -f "$1")
 	echo $FILE_PATH | pbcopy
+}
+
+notify() {
+	osascript -e "display notification \"$1\" with title \"📣\""
 }
 
 # Oxidized coreutil replacements
