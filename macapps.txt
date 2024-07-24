@@ -1,0 +1,40 @@
+# Browser
+arc
+
+# Social / Personal
+discord
+obsidian
+
+# Games
+runelite
+
+# Fonts
+font-fira-code-nerd-font
+
+# Dev / tools
+git
+gh
+visual-studio-code
+eza
+bat
+ripgrep
+pipx
+qemu
+fd
+neovim
+stow
+fastfetch
+alacritty
+starship
+yt-dlp
+
+# MacOS-specific
+rectangle
+easy-move-plus-resize
+caffeine
+battery
+
+# Zsh plugins
+zsh-syntax-highlighting
+zsh-vi-mode
+zsh-autosuggestions
