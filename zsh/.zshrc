@@ -49,7 +49,7 @@ cpath() {
 }
 
 # Oxidized coreutil replacements
-alias ls="eza -l --icons --ignore-glob=.git"
+alias ls="eza -l --icons --ignore-glob=.git --group-directories-first"
 alias lsa="ls -a"
 alias grep="rg"
 alias find="fd"
