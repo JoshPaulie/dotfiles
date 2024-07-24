@@ -19,7 +19,7 @@ eza
 bat
 ripgrep
 pipx
-qemu
+utm
 fd
 neovim
 stow
