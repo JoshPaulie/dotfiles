@@ -18,8 +18,8 @@ Git doesn't come preinstalled. The follow steps ensure it's present on machine
 
 ### Running macstrap
 ```sh
-git clone https://github.com/JoshPaulie/macstrap ~/macstrap
-cd ~/macstrap
+git clone --recurse-submodules https://github.com/JoshPaulie/dotfiles ~/dotfiles
+cd ~/dotfiles
 ./macstrap.sh
 ```
 
