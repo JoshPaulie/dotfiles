@@ -6,7 +6,7 @@ Welcome to my dotfiles! They're meant to be universal between MacOS and GNU/Linu
 > dotfile dependencies like `stow` and `git` might not be present on the system. Instead of running the setup script directly, it should be invoked by one of the included bootstrapping scripts.
 
 ```sh
-git clone https://github.com/JoshPaulie/dotfiles ~/dotfiles
+git clone --recurse-submodules https://github.com/JoshPaulie/dotfiles ~/dotfiles
 cd ~/dotfiles
 ./setup.sh
 ```
