@@ -72,9 +72,7 @@ defaults write com.apple.dock "tilesize" -int "54"
 defaults write com.apple.dock "show-recents" -bool "false"
 
 read -p "Clear the dock of default icons? (y/n) " answer
-if [[ $answer == "y" || $answer == "Y" ]]; then
-	defaults write com.apple.dock persistent-apps -array
-fi
+[[ $answer =~ ^[yY]$ ]] && defaults write com.apple.dock persistent-apps -array
 
 # Keyboard
 defaults write NSGlobalDomain "KeyRepeat" -int "2"
