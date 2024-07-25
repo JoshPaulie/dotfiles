@@ -5,7 +5,6 @@ arc
 discord
 obsidian
 bitwarden
-bitwarden-cli
 
 # Games
 runelite
