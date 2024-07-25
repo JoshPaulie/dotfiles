@@ -10,7 +10,8 @@ banner() {
     local border_char="#"
     local length=${#message}
     local border_length=$((length + 6))
-    local border_line=$(printf "%0.s$border_char" $(seq 1 $border_length))
+    local border_line
+    border_line=$(printf "%0.s$border_char" $(seq 1 $border_length))
 
     echo
     echo "$border_line"
@@ -29,9 +30,9 @@ banner "Ensuring Homebrew"
 if ! command -v brew &> /dev/null; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || error_msg "Failed to run Homebrew install"
 	# shellcheck disable=SC2016
-	(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> $HOME/.zprofile
+	(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> "$HOME"/.zprofile
 	eval "$(/opt/homebrew/bin/brew shellenv)"
-	echo "Homebrew has been installed. Please close and start a new shell"
+	echo "Homebrew has been installed. Please close and start a new shell, and rerun ./macstrap.sh"
 	exit
 else
 	echo "Homebrew is already installed"
@@ -41,11 +42,11 @@ fi
 ## Install daily software ##
 ############################
 banner "Installing daily software"
+# shellcheck disable=SC2046
+# ^ We want string splitting, am I'm too lazy to properly implement w/o `mapfile`
 # grep	:: removes comments, blank lines
 # tr	:: flattens lines into single line
-# shellcheck disable=SC2046
 brew install $(grep -vE '^\s*#|^\s*$' macapps.txt | tr '\n' ' ') || error_msg "Failed to install daily software"
-# shellcheck disabled bc we want word splitting
 
 #########################
 ## Set system settings ##
@@ -71,7 +72,7 @@ defaults write com.apple.dock "autohide" -bool "true"
 defaults write com.apple.dock "tilesize" -int "54"
 defaults write com.apple.dock "show-recents" -bool "false"
 
-read -p "Clear the dock of default icons? (y/n) " answer
+read -rp "Clear the dock of default icons? (y/n) " answer
 [[ $answer =~ ^[yY]$ ]] && defaults write com.apple.dock persistent-apps -array
 
 # Keyboard
