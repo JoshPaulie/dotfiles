@@ -4,6 +4,8 @@ arc
 # Social / Personal
 discord
 obsidian
+bitwarden
+bitwarden-cli
 
 # Games
 runelite
