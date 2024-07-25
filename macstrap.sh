@@ -1,53 +1,55 @@
 #!/bin/bash
 
-# Color variables
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
-BLUE='\033[0;34m'
-NC='\033[0m'
-
 
 error_msg() {
-	echo "${RED}Error: $1${NC}"
+	echo "Error: $1"
 	exit 1
 }
 
-info_msg() {
-	echo "${BLUE}$1{$NC}: $2"
+banner() {
+    local message="$1"
+    local border_char="#"
+    local length=${#message}
+    local border_length=$((length + 6))
+    local border_line=$(printf "%0.s$border_char" $(seq 1 $border_length))
+
+    echo
+    echo "$border_line"
+    echo "$border_char  $message  $border_char"
+    echo "$border_line"
+    echo
 }
 
-
 ## Header ##
-echo "####################"
-echo "${YELLOW}Welcome to Macstrap!${NC}"
-echo "####################"
+banner "Welcome to Macstrap!"
 
 ##################################################
 ## Ensure Homebrew.sh install (package manager) ##
 ##################################################
-info_msg "Ensuring" "Homebrew is installed!"
+banner "Ensuring Homebrew"
 if ! command -v brew &> /dev/null; then
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || error_msg "Failed to run Homebrew install"
 	# shellcheck disable=SC2016
-	(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/bex/.zprofile
+	(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> $HOME/.zprofile
 	eval "$(/opt/homebrew/bin/brew shellenv)"
+	echo "Homebrew has been installed. Please close and start a new shell"
+	exit
 else
-	echo "${GREEN}Homebrew is already installed"
+	echo "Homebrew is already installed"
 fi
 
 ############################
 ## Install daily software ##
 ############################
+banner "Installing daily software"
 # grep	:: removes comments, blank lines
 # tr	:: flattens lines into single line
-info_msg "Installing" "daily software"
-brew install "$(grep -vE '^\s*#|^\s*$' macapps.txt | tr '\n' ' ')"
+brew install "$(grep -vE '^\s*#|^\s*$' macapps.txt | tr '\n' ' ')" || error_msg "Failed to install daily software"
 
 #########################
 ## Set system settings ##
 #########################
-info_msg "Setting" "system settings"
+banner "Setting system prefrences"
 # Many, if not all, all of the following settings are from the very helpful https://macos-defaults.com/
 # The rest are discovered by creating a snapshot of `defaults read`, imperatively making the change, snap shotting `defaults read` again, & diff'ing the two
 
@@ -89,4 +91,5 @@ defaults write com.apple.screencapture disable-shadow -bool true
 #######################
 ## Run dotfile setup ##
 #######################
+banner "Stowing dotfiles"
 ./setup.sh
