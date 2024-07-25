@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 error_msg() {
 	echo "Error: $1"
 	exit 1
@@ -44,13 +43,17 @@ fi
 banner "Installing daily software"
 # grep	:: removes comments, blank lines
 # tr	:: flattens lines into single line
-brew install "$(grep -vE '^\s*#|^\s*$' macapps.txt | tr '\n' ' ')" || error_msg "Failed to install daily software"
+# shellcheck disable=SC2046
+brew install $(grep -vE '^\s*#|^\s*$' macapps.txt | tr '\n' ' ') || error_msg "Failed to install daily software"
+# shellcheck disabled bc we want word splitting
 
 #########################
 ## Set system settings ##
 #########################
 banner "Setting system prefrences"
-# Many, if not all, all of the following settings are from the very helpful https://macos-defaults.com/
+# Many, if not all, all of the following settings are from the very helpful
+# - https://macos-defaults.com/
+# - https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 # The rest are discovered by creating a snapshot of `defaults read`, imperatively making the change, snap shotting `defaults read` again, & diff'ing the two
 
 # Globals
@@ -68,9 +71,15 @@ defaults write com.apple.dock "autohide" -bool "true"
 defaults write com.apple.dock "tilesize" -int "54"
 defaults write com.apple.dock "show-recents" -bool "false"
 
+read -p "Clear the dock of default icons? (y/n) " answer
+if [[ $answer == "y" || $answer == "Y" ]]; then
+	defaults write com.apple.dock persistent-apps -array
+fi
+
 # Keyboard
 defaults write NSGlobalDomain "KeyRepeat" -int "2"
 defaults write NSGlobalDomain "InitialKeyRepeat" -int "25"
+defaults write NSGlobalDomain "ApplePressAndHoldEnabled" -bool "false"
 
 # Accessibility
 sudo defaults write com.apple.universalaccess "reduceMotion" -bool "true"
@@ -93,3 +102,11 @@ defaults write com.apple.screencapture disable-shadow -bool true
 #######################
 banner "Stowing dotfiles"
 ./setup.sh
+
+#####################
+## Reboot reminder ##
+#####################
+banner "Many settings don't take effect until the machine is restarted."
+echo "Rebooting in 15 seconds, exit script to stop."
+sleep 15
+sudo reboot
