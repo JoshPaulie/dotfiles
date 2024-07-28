@@ -36,24 +36,24 @@ alias mv="mv -v"
 alias cp="cp -v"
 
 mkcd() {
-	mkdir $1 && cd $1
+    mkdir $1 && cd $1
 }
 
 export TEMP_DIR="$HOME/tmp"
 tmp() { # Used for quickly making temp directories
-	mkdir -p $TEMP_DIR
-	cd $TEMP_DIR
-	mkdir $1
-	cd $1
+    mkdir -p $TEMP_DIR
+    cd $TEMP_DIR
+    mkdir $1
+    cd $1
 }
 
 cpath() {
-	FILE_PATH=$(readlink -f "$1")
-	echo $FILE_PATH | pbcopy
+    FILE_PATH=$(readlink -f "$1")
+    echo $FILE_PATH | pbcopy
 }
 
 notify() {
-	osascript -e "display notification \"$1\" with title \"📣\""
+    osascript -e "display notification \"$1\" with title \"📣\""
 }
 
 # Oxidized coreutil replacements
@@ -68,7 +68,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Git
 function gcommit {
-	git commit -m "$1"
+    git commit -m "$1"
 }
 alias ginit='git init'
 alias gpush='git push'
