@@ -8,9 +8,16 @@ source $HOME/dotfiles/zsh/zsh-plugins/catppuccin-zsh-syntax-highlighting/themes/
 source $HOME/dotfiles/zsh/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$HOME/dotfiles/zsh/zsh-plugins/zsh-syntax-highlighting/highlighters
 
-# Yen (python environment manager)
-export PATH=$PATH:/Users/bex/.yen/bin
-alias py="yen exec --python 3.12"
+# Pyenv (python version manager)
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Python helper
+venv() {
+    [ -d ".venv" ] || python -m venv .venv
+    source ".venv/bin/activate"
+}
 
 # Fzf
 source <(fzf --zsh)
