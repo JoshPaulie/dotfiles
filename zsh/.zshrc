@@ -22,11 +22,14 @@ autoload -Uz compinit && compinit
 setopt MENU_COMPLETE
 
 # Zsh/Terminal aliases and functions
+export DOTFILES="$HOME/dotfiles"
+export ZSHRC="$HOME/.zshrc"
+
 alias ..="cd .."
 alias ~="cd $HOME"
 alias dev="cd $HOME/dev"
-alias zshrc="nvim $HOME/.zshrc && source $HOME/.zshrc && echo '✨ Sourced .zshrc' "
-alias dotfiles="cd $HOME/dotfiles"
+alias zshrc="nvim $ZSHRC && source $ZSHRC && echo '✨ Sourced .zshrc' "
+alias dotfiles="cd $DOTFILES"
 alias dot="dotfiles"
 alias c="clear"
 alias mv="mv -v"
