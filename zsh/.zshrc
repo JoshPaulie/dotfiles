@@ -12,6 +12,9 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$HOME/dotfiles/zsh/zsh-plugins/zsh-syntax-
 export PATH=$PATH:/Users/bex/.yen/bin
 alias py="yen exec --python 3.12"
 
+# Fzf
+source <(fzf --zsh)
+
 # Homebrew
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
