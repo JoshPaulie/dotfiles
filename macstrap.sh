@@ -118,6 +118,12 @@ defaults write com.apple.WindowManager "StandardHideWidgets" -bool false
 banner "Stowing dotfiles"
 ./setup.sh
 
+###################
+## Install Pyenv ##
+###################
+banner "Installing Pyenv"
+curl https://pyenv.run | bash
+
 #####################
 ## Reboot reminder ##
 #####################
