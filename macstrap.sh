@@ -80,6 +80,10 @@ defaults write NSGlobalDomain "KeyRepeat" -int "2"
 defaults write NSGlobalDomain "InitialKeyRepeat" -int "25"
 defaults write NSGlobalDomain "ApplePressAndHoldEnabled" -bool "false"
 
+# Disable trackpad when mouse is connected
+defaults write com.apple.AppleMultitouchTrackpad "USBMouseStopsTrackpad" -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad "USBMouseStopsTrackpad" -bool
+
 # Accessibility
 sudo defaults write com.apple.universalaccess "reduceMotion" -bool "true"
 
@@ -95,6 +99,18 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false # 
 # Screenshots
 defaults write com.apple.screencapture type -string "png"
 defaults write com.apple.screencapture disable-shadow -bool true
+
+# Window manager
+defaults write com.apple.WindowManager "AppWindowGroupingBehavior" -bool true
+defaults write com.apple.WindowManager "AutoHide" -bool false
+defaults write com.apple.WindowManager "EnableStandardClickToShowDesktop" -bool false
+defaults write com.apple.WindowManager "HasDisplayedShowDesktopEducation" -bool true
+defaults write com.apple.WindowManager "HideDesktop" -bool true
+defaults write com.apple.WindowManager "StageManagerHideWidgets" -bool false
+defaults write com.apple.WindowManager "StandardHideDesktopIcons" -bool true
+defaults write com.apple.WindowManager "StandardHideWidgets" -bool false
+
+
 
 #######################
 ## Run dotfile setup ##
