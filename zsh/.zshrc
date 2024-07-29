@@ -15,6 +15,7 @@ eval "$(pyenv init -)"
 
 # Python helper
 venv() {
+    [ "$PWD" = "$HOME" ] && { echo "You shouldn't make a venv in the home directory."; return 1; }
     [ -d ".venv" ] || python -m venv .venv
     source ".venv/bin/activate"
 }
