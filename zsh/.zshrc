@@ -58,9 +58,17 @@ tmp() { # Used for quickly making temp directories
     cd $1
 }
 
-cpath() {
+tmp-clear() {
+    rm -rfI $TEMP_DIR
+}
+
+cpath() { # Copy file path to clipboard
     FILE_PATH=$(readlink -f "$1")
     echo $FILE_PATH | pbcopy
+}
+
+clines() { # Copy file contents to clipboard
+    pbcopy < $1
 }
 
 notify() {
@@ -88,6 +96,15 @@ alias gadd='git add'
 alias gstat='git status'
 alias gdiff='git diff'
 
-# Misc
+# App abbreviations
 alias ff="fastfetch"
 alias lg="lazygit"
+
+# Nvim startup
+neo() {
+    if [ $# -eq 0 ]; then
+        nvim .
+    else
+        nvim "$@"
+    fi
+}
