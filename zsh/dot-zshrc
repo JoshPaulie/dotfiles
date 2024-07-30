@@ -35,6 +35,7 @@ setopt MENU_COMPLETE
 # Zsh/Terminal aliases and functions
 export DOTFILES="$HOME/dotfiles"
 export ZSHRC="$HOME/.zshrc"
+export NVIM="$HOME/.config/nvim"
 
 alias ..="cd .."
 alias ~="cd $HOME"
