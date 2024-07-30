@@ -52,10 +52,9 @@ mkcd() {
 
 export TEMP_DIR="$HOME/tmp"
 tmp() { # Used for quickly making temp directories
-    mkdir -p $TEMP_DIR
-    cd $TEMP_DIR
-    mkdir $1
-    cd $1
+    new_tmp_dir="$TEMP_DIR/$1"
+    mkdir -p $new_tmp_dir
+    cd $new_tmp_dir
 }
 
 tmp-clear() {
