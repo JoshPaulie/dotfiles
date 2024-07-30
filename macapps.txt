@@ -19,6 +19,7 @@ visual-studio-code
 eza
 bat
 ripgrep
+dust
 pipx
 utm
 fd
