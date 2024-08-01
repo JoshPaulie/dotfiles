@@ -99,12 +99,6 @@ alias gdiff='git diff'
 # App abbreviations
 alias ff="fastfetch"
 alias lg="lazygit"
-
-# Nvim startup
-neo() {
-    if [ $# -eq 0 ]; then
-        nvim .
-    else
-        nvim "$@"
-    fi
-}
+alias v="nvim"
+alias n="nvim"
+alias neo="nvim"
