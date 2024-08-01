@@ -1,3 +1,6 @@
+-- This module simply checks if any arguments were passed to Neovim (file/dir), and opens Oil if none
+-- Effectively, if no file or dir is specified, Neovim starts as if it was called with `nvim .`
+
 local function open_cwd_if_no_args()
     local args = vim.fn.argv()
     if #args == 0 then
