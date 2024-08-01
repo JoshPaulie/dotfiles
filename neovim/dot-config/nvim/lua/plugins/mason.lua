@@ -1,22 +1,20 @@
 return {
+    -- mason
     {
-        "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup()
-        end,
+        "williamboman/mason.nvim", opts = {}
     },
+    -- brige mason & lspconfig
     {
         "williamboman/mason-lspconfig.nvim",
-        config = function()
-            require("mason-lspconfig").setup({
-                ensure_installed = {
-                    "lua_ls",
-                    "ruff",
-                    "ruff_lsp",
-                },
-            })
-        end,
+        opts = {
+            ensure_installed = {
+                "lua_ls",
+                "ruff",
+                "ruff_lsp",
+            },
+        }
     },
+    -- lspconfig
     {
         "neovim/nvim-lspconfig",
         config = function()
