@@ -23,3 +23,6 @@ vim.keymap.set('i', '<C-c>', '<C-e>', { noremap = true, silent = true })
 
 -- Visually select all lines
 vim.keymap.set('n', '<leader>a', 'ggVG', { noremap = true, silent = true, desc = "Visually select all lines" })
+
+-- My fav way to save
+vim.keymap.set('n', '<leader>w', ':w<CR>')
