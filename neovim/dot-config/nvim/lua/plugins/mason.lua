@@ -8,7 +8,13 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
-            require("mason-lspconfig").setup()
+            require("mason-lspconfig").setup({
+                ensure_installed = {
+                    "lua_ls",
+                    "ruff",
+                    "ruff_lsp",
+                },
+            })
         end,
     },
     {
@@ -21,6 +27,7 @@ return {
                 local opts = { noremap = true, silent = true, buffer = bufnr }
                 local keymap = vim.keymap.set
 
+                -- Format on save
                 if client.server_capabilities.documentFormattingProvider then
                     vim.api.nvim_create_autocmd("BufWritePre", {
                         group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
