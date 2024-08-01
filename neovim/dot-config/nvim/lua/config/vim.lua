@@ -4,7 +4,7 @@ vim.opt.clipboard:append("unnamedplus")
 -- Line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.signcolumn = "number"
+-- vim.opt.signcolumn = "number"
 vim.opt.cursorline = true
 
 -- Undo
