@@ -29,4 +29,5 @@ require("lazy").setup({
     },
     -- Configure any other lazy settings here. See the documentation for more details.
     checker = { enabled = true, notify = false },
+    change_detection = { notify = false }
 })
