@@ -23,8 +23,7 @@ return {
         end
 
         -- Lazygit mapping
-        vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true, desc = "Open LazyGit"})
+        vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _lazygit_toggle()<CR>",
+            { noremap = true, silent = true, desc = "Open LazyGit" })
     end,
 }
-
-

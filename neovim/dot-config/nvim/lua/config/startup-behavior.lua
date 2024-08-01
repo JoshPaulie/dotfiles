@@ -6,4 +6,3 @@ local function open_cwd_if_no_args()
 end
 
 vim.api.nvim_create_autocmd("VimEnter", { callback = open_cwd_if_no_args })
-

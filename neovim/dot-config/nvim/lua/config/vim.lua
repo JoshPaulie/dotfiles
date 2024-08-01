@@ -7,7 +7,7 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = "number"
 vim.opt.cursorline = true
 
--- Undo 
+-- Undo
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.expand('~/.config/nvim-undo')
 
@@ -18,7 +18,7 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 
 -- Whitespace characters
-vim.opt.listchars = { space = '·', tab = '>·', trail = '~', extends = '>', precedes = '<', eol = ''}
+vim.opt.listchars = { space = '·', tab = '>·', trail = '~', extends = '>', precedes = '<', eol = '' }
 vim.api.nvim_set_keymap('n', '<leader>tl', ':set list!<CR>', { noremap = true, silent = true })
 
 -- Search highlighting
