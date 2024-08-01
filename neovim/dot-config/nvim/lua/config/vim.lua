@@ -5,6 +5,7 @@ vim.opt.clipboard:append("unnamedplus")
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "number"
+vim.opt.cursorline = true
 
 -- Undo 
 vim.opt.undofile = true
@@ -24,3 +25,6 @@ vim.api.nvim_set_keymap('n', '<leader>tl', ':set list!<CR>', { noremap = true, s
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- Cursor follows new splits
+vim.opt.splitbelow = true
+vim.opt.splitright = true
