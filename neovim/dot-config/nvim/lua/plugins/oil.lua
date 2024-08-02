@@ -4,6 +4,5 @@ return {
     opts = {
         skip_confirm_for_simple_edits = true,
     },
-    -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
 }
