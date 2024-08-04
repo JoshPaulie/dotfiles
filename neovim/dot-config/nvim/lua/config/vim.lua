@@ -1,6 +1,9 @@
 -- Use system clipboard
 vim.opt.clipboard:append("unnamedplus")
 
+-- No swap file
+vim.opt.swapfile = false
+
 -- Line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
