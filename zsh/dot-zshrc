@@ -58,7 +58,7 @@ dev() { # cd to ~/dev (or) specific dir in ~/dev
 }
 
 export TEMP_DIR="$HOME/tmp"
-tmp() { # Used for quickly making temp directories
+tmp() { # cd to ~/tmp (or) specific dir in ~/tmp
     new_tmp_dir="$TEMP_DIR/$1"
     mkdir -p $new_tmp_dir
     cd $new_tmp_dir
@@ -108,3 +108,4 @@ alias lg="lazygit"
 alias v="nvim"
 alias n="nvim"
 alias neo="nvim"
+alias py="python"
