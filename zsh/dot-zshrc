@@ -39,7 +39,6 @@ export NVIM="$HOME/.config/nvim"
 
 alias ..="cd .."
 alias ~="cd $HOME"
-alias dev="cd $HOME/dev"
 alias zshrc="nvim $ZSHRC && source $ZSHRC && echo '✨ Sourced .zshrc' "
 alias dotfiles="cd $DOTFILES"
 alias dot="dotfiles"
@@ -49,6 +48,13 @@ alias cp="cp -v"
 
 mkcd() {
     mkdir $1 && cd $1
+}
+
+export DEV_DIR="$HOME/dev"
+dev() { # cd to ~/dev (or) specific dir in ~/dev
+    new_dev_dir="$DEV_DIR/$1"
+    mkdir -p $new_dev_dir
+    cd $new_dev_dir
 }
 
 export TEMP_DIR="$HOME/tmp"
