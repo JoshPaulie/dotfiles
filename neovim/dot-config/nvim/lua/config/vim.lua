@@ -30,3 +30,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Cursor follows new splits
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+-- Turn on native spell checking
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
