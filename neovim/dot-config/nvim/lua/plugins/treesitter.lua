@@ -8,6 +8,11 @@ return {
             ensure_installed = {
                 "lua",
                 "python"
+            highlight = {
+                enable = true,
+                disable = {
+                    "csv", -- Disable for rainbow_csv
+                }
             },
             sync_install = false,
             highlight = { enable = true },
