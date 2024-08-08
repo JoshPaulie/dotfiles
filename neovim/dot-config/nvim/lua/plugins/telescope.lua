@@ -7,6 +7,9 @@ return {
         -- https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
         config = function()
             require('telescope').setup {
+                defaults = {
+                    layout_strategy = 'vertical',
+                },
                 extensions = {
                     ['ui-select'] = {
                         require('telescope.themes').get_dropdown(),
