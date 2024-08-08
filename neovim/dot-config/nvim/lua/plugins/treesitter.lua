@@ -8,15 +8,17 @@ return {
         configs.setup({
             ensure_installed = {
                 "lua",
-                "python"
+                "python",
+                "go"
+            },
+            sync_install = false, -- Installs "ensure installed" langs asynchronously
+            auto_install = true,
             highlight = {
                 enable = true,
                 disable = {
                     "csv", -- Disable for rainbow_csv
                 }
             },
-            sync_install = false,
-            highlight = { enable = true },
             indent = { enable = true },
             incremental_selection = {
                 enable = true,
