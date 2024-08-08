@@ -49,12 +49,21 @@ return {
 
             -- Servers and config
             -- Python
-            lspconfig.ruff.setup({
-                on_attach = on_attach
+            lspconfig.ruff.setup({ -- Formatter
+                on_attach = on_attach,
+                init_options = {
+                    settings = {
+                        lint = {
+                            enable = false
+                        }
+                    }
+                }
+
             })
-            lspconfig.ruff_lsp.setup({
-                on_attach = on_attach
+            lspconfig.pyright.setup({ -- LSP
+                on_attach = on_attach,
             })
+
 
             -- Lua
             lspconfig.lua_ls.setup({
