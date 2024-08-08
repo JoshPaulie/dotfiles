@@ -77,6 +77,10 @@ return {
                     },
                 },
             })
+
+            lspconfig.gopls.setup({ -- LSP
+                on_attach = on_attach,
+            })
         end,
     },
 }
