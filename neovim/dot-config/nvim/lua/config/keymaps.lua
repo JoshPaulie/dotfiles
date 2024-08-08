@@ -27,3 +27,6 @@ vim.keymap.set('n', '<leader>ay', 'ggVGy', { noremap = true, silent = true, desc
 
 -- My fav way to save
 vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = "[W]rite document" })
+
+-- Escape with jk
+vim.keymap.set('i', 'jk', "<Esc>")
