@@ -29,6 +29,7 @@ fastfetch
 alacritty
 starship
 yt-dlp
+yazi
 
 # MacOS-specific
 rectangle

@@ -1,3 +1,5 @@
+export EDITOR="nvim"
+
 # Prompt
 eval "$(starship init zsh)"
 
@@ -109,3 +111,4 @@ alias v="nvim"
 alias n="nvim"
 alias neo="nvim"
 alias py="python"
+alias y="yazi"
