@@ -17,8 +17,22 @@ eval "$(pyenv init -)"
 
 # Python helper
 venv() {
-    [ "$PWD" = "$HOME" ] && { echo "You shouldn't make a venv in the home directory."; return 1; }
+    # Don't make in home dir
+    if [[ "$PWD" = "$HOME" ]]; then
+        echo "You shouldn't make a virtual environment in the home directory."
+        return 1
+    fi
+
+    # If already an active venv, deactivate it and halt
+    if [[ $VIRTUAL_ENV ]]; then
+        deactivate
+        return 0
+    fi
+
+    # Create venv if doesn't exist in cwd
     [ -d ".venv" ] || python -m venv .venv
+
+    # Activate venv
     source ".venv/bin/activate"
 }
 
