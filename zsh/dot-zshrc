@@ -61,7 +61,7 @@ export NVIM="$HOME/.config/nvim"
 
 alias ..="cd .."
 alias ~='cd $HOME'
-alias zshrc='nvim $ZSHRC && source $ZSHRC && echo ✨ Sourced .zshrc'
+alias zshrc='nvim $ZSHRC && source $ZSHRC && echo  Sourced .zshrc'
 alias dotfiles='cd $DOTFILES'
 alias dot="dotfiles"
 alias c="clear"
