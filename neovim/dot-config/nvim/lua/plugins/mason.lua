@@ -66,7 +66,7 @@ return {
 
 
             -- Lua
-            lspconfig.lua_ls.setup({
+            lspconfig.lua_ls.setup({ -- LSP and formatter
                 on_attach = on_attach,
                 settings = {
                     Lua = {
@@ -78,7 +78,8 @@ return {
                 },
             })
 
-            lspconfig.gopls.setup({ -- LSP
+            -- Go
+            lspconfig.gopls.setup({ -- LSP and formatter
                 on_attach = on_attach,
             })
         end,
