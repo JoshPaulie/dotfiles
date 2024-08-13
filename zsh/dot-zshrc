@@ -15,6 +15,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# No pip install outside of venv
+export PIP_REQUIRE_VIRTUALENV=true
+
 # Python helper
 venv() {
     # Don't make in home dir
