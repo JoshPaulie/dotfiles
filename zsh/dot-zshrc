@@ -1,14 +1,17 @@
+# shellcheck disable=SC2148
+# ^ Don't require shebang
+
 export EDITOR="nvim"
 
 # Prompt
 eval "$(starship init zsh)"
 
 # Zsh Plugins
-source $HOME/dotfiles/zsh/zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/dotfiles/zsh/zsh-plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source $HOME/dotfiles/zsh/zsh-plugins/catppuccin-zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
-source $HOME/dotfiles/zsh/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$HOME/dotfiles/zsh/zsh-plugins/zsh-syntax-highlighting/highlighters
+source "$HOME/dotfiles/zsh/zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOME/dotfiles/zsh/zsh-plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+source "$HOME/dotfiles/zsh/zsh-plugins/catppuccin-zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh"
+source "$HOME/dotfiles/zsh/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$HOME/dotfiles/zsh/zsh-plugins/zsh-syntax-highlighting/highlighters"
 
 # Pyenv (python version manager)
 export PYENV_ROOT="$HOME/.pyenv"
@@ -57,43 +60,43 @@ export ZSHRC="$HOME/.zshrc"
 export NVIM="$HOME/.config/nvim"
 
 alias ..="cd .."
-alias ~="cd $HOME"
-alias zshrc="nvim $ZSHRC && source $ZSHRC && echo '✨ Sourced .zshrc' "
-alias dotfiles="cd $DOTFILES"
+alias ~='cd $HOME'
+alias zshrc='nvim $ZSHRC && source $ZSHRC && echo ✨ Sourced .zshrc'
+alias dotfiles='cd $DOTFILES'
 alias dot="dotfiles"
 alias c="clear"
 alias mv="mv -v"
 alias cp="cp -v"
 
 mkcd() {
-    mkdir $1 && cd $1
+    mkdir "$1" && cd "$1" || return 1
 }
 
 export DEV_DIR="$HOME/dev"
 dev() { # cd to ~/dev (or) specific dir in ~/dev
     new_dev_dir="$DEV_DIR/$1"
-    mkdir -p $new_dev_dir
-    cd $new_dev_dir
+    mkdir -p "$new_dev_dir"
+    cd "$new_dev_dir" || return 1
 }
 
 export TEMP_DIR="$HOME/tmp"
 tmp() { # cd to ~/tmp (or) specific dir in ~/tmp
     new_tmp_dir="$TEMP_DIR/$1"
-    mkdir -p $new_tmp_dir
-    cd $new_tmp_dir
+    mkdir -p "$new_tmp_dir"
+    cd "$new_tmp_dir" || return 1
 }
 
 tmp-clear() {
-    rm -rfI $TEMP_DIR
+    rm -rfI "$TEMP_DIR"
 }
 
 cpath() { # Copy file path to clipboard
     FILE_PATH=$(readlink -f "$1")
-    echo $FILE_PATH | pbcopy
+    echo "$FILE_PATH" | pbcopy
 }
 
 clines() { # Copy file contents to clipboard
-    pbcopy < $1
+    pbcopy < "$1"
 }
 
 notify() {
