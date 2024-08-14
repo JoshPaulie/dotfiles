@@ -15,6 +15,18 @@ style = "bold lavender"
 [battery]
 disabled = true
 
+[python]
+symbol = " "
+
+[golang]
+symbol = "󰟓 "
+
+[rust]
+symbol = " "
+
+[lua]
+symbol = " "
+
 # palette tables should be last in the config ⚓️
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
