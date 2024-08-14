@@ -22,7 +22,7 @@ eval "$(pyenv init -)"
 # No pip install outside of venv
 export PIP_REQUIRE_VIRTUALENV=true
 
-# Python helper
+# Python virtual environment helper
 venv() {
     # Don't make in home dir
     if [[ "$PWD" = "$HOME" ]]; then
@@ -30,17 +30,30 @@ venv() {
         return 1
     fi
 
+    # Del 'subcommand'
+    if [[ $1 == "del" ]]; then
+        rm -fr .venv
+        echo "Deleted virtual environment"
+        [ $VIRTUAL_ENV ] && { deactivate; echo "Deactivated virtual environment" }
+        return 0
+    fi
+
     # If already an active venv, deactivate it and halt
     if [[ $VIRTUAL_ENV ]]; then
         deactivate
+        echo "Deactivated virtual environment"
         return 0
     fi
 
     # Create venv if doesn't exist in cwd
-    [ -d ".venv" ] || python -m venv .venv
+    if [[ ! -d ".venv" ]]; then
+        echo "Creating virtual environment.."
+        python -m venv .venv
+    fi
 
     # Activate venv
     source ".venv/bin/activate"
+    echo "Activated virtual environment"
 }
 
 # Fzf
