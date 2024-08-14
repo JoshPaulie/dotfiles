@@ -1,5 +1,6 @@
-# shellcheck disable=SC2148
-# ^ Don't require shebang
+# shellcheck disable=SC2148,SC1091
+#                    ^ Don't require shebang
+#                           ^ Ignore sourcing issues
 
 export EDITOR="nvim"
 
@@ -43,6 +44,7 @@ venv() {
 }
 
 # Fzf
+# shellcheck disable=SC1090
 source <(fzf --zsh)
 
 # Homebrew
