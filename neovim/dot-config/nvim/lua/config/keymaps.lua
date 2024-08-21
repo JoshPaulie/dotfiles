@@ -30,3 +30,7 @@ vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = "[W]rite document" })
 
 -- Escape with jk
 vim.keymap.set('i', 'jk', "<Esc>")
+
+-- center after {}
+vim.keymap.set('n', '{', '{zz')
+vim.keymap.set('n', '}', '}zz')

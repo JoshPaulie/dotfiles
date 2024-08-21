@@ -34,3 +34,6 @@ vim.opt.splitright = true
 -- Turn on native spell checking
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
+
+-- Scroll off
+vim.opt.scrolloff = 5
