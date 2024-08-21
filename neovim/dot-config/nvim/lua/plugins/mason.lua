@@ -82,6 +82,11 @@ return {
             lspconfig.gopls.setup({ -- LSP and formatter
                 on_attach = on_attach,
             })
+
+            -- TOML
+            lspconfig.taplo.setup({ -- LSP (schema integration) and formatter
+                on_attach = on_attach,
+            })
         end,
     },
 }
