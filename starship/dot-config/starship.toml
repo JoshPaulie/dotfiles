@@ -1,5 +1,6 @@
 palette = "catppuccin_macchiato"
 
+
 [character]
 success_symbol = "[❯](yellow)"
 error_symbol = "[❯](red)"
@@ -23,6 +24,12 @@ symbol = " "
 
 [lua]
 symbol = " "
+
+[git_status]
+style = "bold maroon"
+
+[git_branch]
+style = "bold flamingo"
 
 # Table should remain at bottom
 [palettes.catppuccin_macchiato]
